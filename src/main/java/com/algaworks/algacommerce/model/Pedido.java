@@ -19,8 +19,11 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "cliente_id")
-    private Integer clienteId;
+//    @Column(name = "cliente_id")
+//    private Integer clienteId;
+
+    @ManyToOne
+    private Cliente cliente;
 
     @Column(name = "data_pedido")
     private LocalDateTime dataPedido;
