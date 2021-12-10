@@ -5,16 +5,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
-import java.util.Objects;
 
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name="produto")
-public class Produto {
-
+@Table(name="categoria")
+public class Categoria {
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +19,7 @@ public class Produto {
 
     private String nome;
 
-    private String descricao;
+    @Column(name = "categoria_pai_id")
+    private Integer categoriaPaiId;
 
-    private BigDecimal preco;
 }
