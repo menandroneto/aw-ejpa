@@ -1,6 +1,7 @@
 package com.algaworks.algacommerce.mapeamentobasico;
 
 import com.algaworks.algacommerce.EntityManagerTest;
+import com.algaworks.algacommerce.model.Cliente;
 import com.algaworks.algacommerce.model.EnderecoEntregaPedido;
 import com.algaworks.algacommerce.model.Pedido;
 import com.algaworks.algacommerce.model.StatusPedido;
@@ -22,8 +23,11 @@ public class MapeamentoObjetoEmbutidoTest extends EntityManagerTest {
         endereco.setCidade("Uberlândia");
         endereco.setEstado("MG");
 
+        Cliente cliente = entityManager.find(Cliente.class, 1);
+
         Pedido pedido = new Pedido();
         // pedido.setId(1);
+        pedido.setCliente(cliente);
         pedido.setDataPedido(LocalDateTime.now());
         pedido.setStatus(StatusPedido.AGUARDANDO);
         pedido.setTotal(new BigDecimal(1000));

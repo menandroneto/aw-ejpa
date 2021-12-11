@@ -23,7 +23,7 @@ public class PagamentoCartao {
 //    private Integer pedidoId;
 
     // owner da relação
-    @OneToOne
+    @OneToOne(optional = false)
     @JoinColumn(name = "pedido_id")
     private Pedido pedido;
 
