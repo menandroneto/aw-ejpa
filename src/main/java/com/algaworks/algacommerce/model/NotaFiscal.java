@@ -21,11 +21,14 @@ public class NotaFiscal {
 
 //    @Column(name = "pedido_id")
 //    private Integer pedidoId;
+
+//    @OneToOne
+//    @JoinTable(name = "pedido_nota_fiscal",
+//            joinColumns = @JoinColumn(name = "nota_fiscal_id", unique = true),
+//            inverseJoinColumns = @JoinColumn(name = "pedido_id", unique = true))
+
     @OneToOne
-//    @JoinColumn(name = "pedido_id")
-    @JoinTable(name = "pedido_nota_fiscal",
-            joinColumns = @JoinColumn(name = "nota_fiscal_id", unique = true),
-            inverseJoinColumns = @JoinColumn(name = "pedido_id", unique = true))
+    @JoinColumn(name = "pedido_id")
     private Pedido pedido;
 
     private String xml;

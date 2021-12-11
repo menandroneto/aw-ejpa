@@ -47,7 +47,7 @@ public class Pedido {
     @Embedded
     private EnderecoEntregaPedido enderecoEntrega;
 
-    @OneToMany(mappedBy = "pedido")
+    @OneToMany(mappedBy = "pedido", fetch= FetchType.LAZY)
     private List<ItemPedido> itens;
 
     @OneToOne(mappedBy = "pedido")
