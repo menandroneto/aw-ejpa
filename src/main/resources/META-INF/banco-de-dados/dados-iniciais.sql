@@ -9,7 +9,7 @@ insert into item_pedido (id, pedido_id, produto_id, preco_produto, quantidade) v
 insert into item_pedido (id, pedido_id, produto_id, preco_produto, quantidade) values (2, 1, 1, 5.0, 2);
 insert into item_pedido (id, pedido_id, produto_id, preco_produto, quantidade) values (3, 1, 1, 5.0, 2);
 
-
+insert into categoria (id, nome) values (1, "Eletrônicos");
 
 
 
