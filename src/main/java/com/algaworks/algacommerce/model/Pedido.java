@@ -1,5 +1,7 @@
 package com.algaworks.algacommerce.model;
 
+import com.algaworks.algacommerce.listener.GenericoListener;
+import com.algaworks.algacommerce.listener.GerarNotaFiscalListener;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +15,7 @@ import java.util.List;
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
+@EntityListeners({ GerarNotaFiscalListener.class, GenericoListener.class })
 @Table(name="pedido")
 public class Pedido {
     @EqualsAndHashCode.Include
@@ -49,6 +52,10 @@ public class Pedido {
 
     @Embedded
     private EnderecoEntregaPedido enderecoEntrega;
+
+    public boolean isPago() {
+        return StatusPedido.PAGO.equals(status);
+    }
 
     @OneToMany(mappedBy = "pedido", fetch= FetchType.LAZY)
     private List<ItemPedido> itens;
@@ -101,9 +108,10 @@ public class Pedido {
     public void aposRemover() {
         System.out.println("Após remover Pedido.");
     }
+    /*
     @PostLoad
     public void aoCarregar() {
         System.out.println("Após carregar o Pedido.");
     }
-
+    */
 }
