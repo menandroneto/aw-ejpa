@@ -16,7 +16,7 @@ public class EstadosECicloDeVidaTest extends EntityManagerTest {
         entityManager.remove(categoriaManaged);         // Removed
         entityManager.persist(categoriaManaged);        // Volta a ser Gerenciada
 
-        entityManager.detach(categoriaManaged);         // Desanexada 
+        entityManager.detach(categoriaManaged);         // Desanexada
     }
 
 }
